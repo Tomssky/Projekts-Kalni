@@ -1,0 +1,29 @@
+/* Screens narrower than 360px */
+@media only screen and (max-width:359px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Screens between 360px and 575px */
+@media only screen and (max-width:575px) and (min-width:360px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Screens between 576px and 899px */
+@media only screen and (max-width:899px) and (min-width:576px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Screens between 900px and 1249px */
+@media only screen and (max-width:1249px) and (min-width:900px) {}
+
+/* Screens between 1250px and 1649px */
+@media only screen and (max-width:1649px) and (min-width:1250px) {}
+
+/* Screens wider than 1650px */
+@media only screen and (min-width:1650px) {}

@@ -1,0 +1,244 @@
+body,
+html {
+	margin: 0px;
+	padding: 0px;
+	background-color: black;
+	font-family: Verdana, sans-serif;
+	/* aizmugures photo */
+	background-image: url("../images/bg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+table {
+	display: inline-table;
+	border: 1px solid rgb(112, 38, 155);
+	width: 20%;
+}
+
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.bg {
+	/* aizmugures blur effect */
+	backdrop-filter: blur(10px);
+}
+
+.container {
+	/* vidus dalas atdalijums un noformejums */
+	overflow: auto;
+	margin: 0 auto;
+	padding: 0px;
+	border-left: 4px #000 solid;
+	border-right: 4px #000 solid;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: white;
+	font-weight: bold;
+	border: 3px solid rgb(112, 38, 155);
+	position: center;
+	width: 80%;
+	height: auto;
+}
+
+/*teksta stils un animacijas*/
+h1 {
+	animation: fadeInAnimation ease 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	font: italic small-caps bold 70px Georgia, serif;
+	padding-top: 10px;
+	text-align: left;
+}
+
+h2 {
+	animation: fadeInAnimation ease 4s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	font: 40px Georgia, serif;
+	text-align: center;
+}
+
+h3 {
+	animation: fadeInAnimation ease 5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	font: italic 25px Georgia, serif;
+	color: dimgrey;
+	text-align: center;
+}
+
+hr {
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	background-color: rgb(112, 38, 155);
+	border-color: rgb(112, 38, 155);
+	padding-right: 20px;
+}
+
+
+/* navigacijas linija */
+.topnav {
+	overflow: hidden;
+	background-image: linear-gradient(to top, rgb(112, 38, 155), rgb(145, 83, 180), rgb(112, 38, 155));
+	text-align: left;
+
+}
+
+.topnav a {
+	text-align: left;
+	background-color: rgb(112, 38, 155);
+	border: 2px solid rgb(145, 83, 180);
+	display: inline-block;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 10px 24px;
+	text-decoration: none;
+
+}
+
+.topnav a:hover {
+	background: linear-gradient(to bottom, rgb(145, 83, 180), rgb(112, 38, 155));
+	background-color: rgb(145, 83, 180);
+}
+
+.topnav a.active {
+	background: linear-gradient(to bottom, rgb(145, 83, 180), rgb(112, 38, 155));
+	background-color: rgb(145, 83, 180);
+}
+
+a.right {
+	display: inline-block;
+	text-align: right;
+	float: right;
+}
+
+/* homepage goto pogas */
+.homepage {
+	background-color: rgb(112, 38, 155);
+	border-radius: 15px;
+	border: 2px solid rgb(92, 56, 112);
+	display: inline-block;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 25px;
+	padding: 10px 25px;
+}
+
+.gocatalog:hover {
+	background: linear-gradient(to bottom, rgb(145, 83, 180) 5%, rgb(112, 38, 155) 100%);
+	background-color: rgb(145, 83, 180);
+}
+
+.gocatalog:active {
+	position: relative;
+	top: 1px;
+}
+
+/* tris nodalas homepage*/
+.column {
+	float: left;
+	width: 29%;
+	padding: 10px;
+	margin-top: 120px
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*nodalijuma bildes noformejums*/
+.chop {
+	opacity: 0.5;
+}
+
+/*login page*/
+
+button {
+	background-color: rgb(112, 38, 155);
+	width: 20%;
+	color: #ffffff;
+	padding: 15px;
+	margin: 10px 0px;
+	border: none;
+	cursor: pointer;
+}
+
+input[type=text],
+input[type=password] {
+	width: 50%;
+	margin: 8px;
+	padding: 12px 20px;
+	display: inline-block;
+	border: 2px solid rgb(112, 38, 155);
+	box-sizing: border-box;
+	background-color: lightgray;
+}
+
+button:hover {
+
+	background: linear-gradient(to bottom, rgb(145, 83, 180), rgb(112, 38, 155));
+	background-color: rgb(145, 83, 180);
+}
+
+.center {
+	border: solid rgb(112, 38, 155) 1px;
+	width: 60%;
+	border-radius: 2px;
+	margin: 50px auto;
+	padding: 50px;
+}
+
+.team {
+	/*border: 5px solid #555;*/
+	margin: 20px;
+	overflow: auto;
+}
+
+.team img {
+	border: solid rgb(112, 38, 155) 3px;
+	display: block;
+	margin: 20px;
+}
+
+h4 {
+	font: small-caps bold 50px Georgia, serif;
+	text-align: left;
+}
+
+h5 {
+	font: italic 35px Georgia, serif;
+	color: dimgrey;
+	text-align: left;
+}
+
+p {
+	font: 25px Georgia, serif;
+	color: dimgrey;
+	text-align: left;
+}
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 10px;
+}
+
+.product {
+	display: inline-grid;
+	background-color: #27192f;
+	padding: 20px;
+	text-align: center;
+}
