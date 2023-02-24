@@ -18,7 +18,6 @@ include_once "include/system.php";
             <? echo $controller->page() ?>
         </div>
 
-        <? include_once "theme/public_bottom_nav.php"; ?>
     </div>
 
 </div>
