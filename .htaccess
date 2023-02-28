@@ -1,0 +1,8 @@
+DirectoryIndex index.php
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond $1 !^(index\.php|public|images|css|style|js|robots\.txt)
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+

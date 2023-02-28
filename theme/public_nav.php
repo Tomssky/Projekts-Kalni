@@ -1,12 +1,13 @@
 <div class="topnav">
-    <a href="/private">Home</a>
-    <a href="/catalog">Private catalog</a>
+    <a href="home">Home</a>
+    <a href="/catalog">Catalog</a>
     <a href="/contact">Contact</a>
     <a href="/about">About</a>
     <? if($auth->auth()): ?>
         <a class="right" href="/logout">Logout</a>
     <? else: ?>
-        <a class="right" href="/login">Login</a>
+         <a class="right" href="/login">Login</a>
+         <a class="right" href="/register">register</a>
     <? endif; ?>
 </div>
 

@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend",
+    "\\css",
+    "\\include",
+    "\\pages",
+    "\\theme"
   ],
-  "SelectedNode": "\\C:\\Users\\Tom\\source\\repos\\Projekts-Kalni",
+  "SelectedNode": "\\backend\\authentication.php",
   "PreviewInSolutionExplorer": false
 }

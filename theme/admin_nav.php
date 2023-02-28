@@ -2,6 +2,6 @@
     <a href="">Expences</a>
     <a href="">Active orders</a>
     <a href="">edit catalog</a>
-    <a href="">add users</a>
+    <a href="/register">add users</a>
     <a class="right" href="logout.php">Logout</a>
 </div>

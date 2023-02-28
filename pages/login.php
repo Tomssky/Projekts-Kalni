@@ -4,14 +4,6 @@
 
 <hr>
 <hr>
-<div class="chop">
-     <img src="/images/chop.png" width="50" height="440" align="left">
-     <img src="/images/chop.png" width="50" height="440" align="left">
-</div>
-<div class="chop">
-     <img src="/images/chop.png" width="50" height="440" align="right">
-     <img src="/images/chop.png" width="50" height="440" align="right">
-</div>
 <div class="center">
      <form name="frmUser" action="" method="POST">
           
@@ -24,9 +16,12 @@
                </ul>
           </div>
           <? endif; ?>
-
+          <label for="email">E-mail:</label>
+          </br>
           <input type="text" placeholder="e-pasts" name="email" require>
           </br>
+          <label for="password">Password:</label>
+           </br>
           <input type="password" placeholder="Parole" name="password" require>
           </br>
           <button type="submit" id="btn" name="submit">Login</button>

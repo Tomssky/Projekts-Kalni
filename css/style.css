@@ -150,7 +150,8 @@ a.right {
 	float: left;
 	width: 29%;
 	padding: 10px;
-	margin-top: 120px
+	margin-top: 120px;
+	align-items: center;
 }
 
 .row:after {
@@ -197,8 +198,9 @@ button:hover {
 	border: solid rgb(112, 38, 155) 1px;
 	width: 60%;
 	border-radius: 2px;
-	margin: 50px auto;
+	margin: 150px auto;
 	padding: 50px;
+	text-align: center;
 }
 
 .team {
@@ -241,4 +243,9 @@ p {
 	background-color: #27192f;
 	padding: 20px;
 	text-align: center;
+}
+label {
+	font: 20px Georgia, serif;
+	color: dimgrey;
+	text-align: left;
 }
