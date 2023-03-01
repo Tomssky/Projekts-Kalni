@@ -88,9 +88,8 @@ class auth{
         return false;
     }
 
-    function register(){
+    function register(){ 
 
-    }
-
-}
+   }  
+ }
 ?>

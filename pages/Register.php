@@ -5,18 +5,8 @@
 <hr>
 <hr>
 <div class="center">
-     <form name="frmreg" action="" method="POST">
-          
-     <? if(count($auth->messages) > 0): ?>
-          <div class="message">
-               <ul>
-               <? foreach($auth->messages AS $message): ?>
-                    <li><?=$message?></li>
-               <? endforeach; ?>
-               </ul>
-          </div>
-          <? endif; ?>
-
+     <form name="frmreg" action="include/register.inc.php" method="POST">
+         
           <label for="email">E-mail:</label>
           </br>
           <input type="text" name="email" require>
@@ -25,10 +15,14 @@
            </br>
            <input type="text" name="username" require>
            </br>
-           <label for="password">Password:</label>
+           <label for="pwd">Password:</label>
            </br>
-          <input type="password" name="password" require>
+          <input type="password" name="pwd" require>
           </br>
-          <button type="submit" id="btn" name="submit">Sign up</button>
+          <label for="pwdrepeat">Repeat password:</label>
+           </br>
+          <input type="password" name="pwdrepeat" require>
+          </br>
+          <button type="submit" name="submit">Sign up</button>
      </form>
 </div>
