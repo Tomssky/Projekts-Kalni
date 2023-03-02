@@ -1,4 +1,4 @@
-<?php $auth->register(); ?>
+<?php #$auth->register(); ?>
 
 <h1>Register</h1>
 
