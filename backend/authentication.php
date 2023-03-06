@@ -90,6 +90,6 @@ class auth{
 
     function register(){ 
 
-   }  
  }
+}
 ?>

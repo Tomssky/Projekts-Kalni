@@ -44,9 +44,9 @@ function pwdmatch($pwdrepeat, $pwd) {
 return $result;
 } 
 
-function alreadyexists($conn, $username, $email) {
+function alreadyexists($this->conn, $username, $email) {
  $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
- $stmt = mysqli_stmt_init($conn);
+ $stmt = mysqli_stmt_init($this->conn);
  if (!mysqli_stmt_prepare($stmt, $sql)) {
 	header("location: ../register?error=stmtfailed");
 	exit();
@@ -70,9 +70,9 @@ mysqli_stmt_close($stmt);
 
 } 
 
-function register($conn, $username, $email, $pwd) {
- $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?, ?);";
- $stmt = mysqli_stmt_init($conn);
+function register($this->conn, $username, $email, $pwd) {
+ $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?);";
+ $stmt = mysqli_stmt_init($this->conn);
  if (!mysqli_stmt_prepare($stmt, $sql)) {
 	header("location: ../register?error=stmtfailed");
 	exit();
@@ -81,7 +81,7 @@ function register($conn, $username, $email, $pwd) {
 $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 
-mysqli_stmt_bind_param($stmt, "ssss",  $username, $email, $hashpwd);
+mysqli_stmt_bind_param($stmt, "sss",  $username, $email, $hashpwd);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 header("location: ../register?error=none");

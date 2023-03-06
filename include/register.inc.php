@@ -1,5 +1,8 @@
 <?php 
 
+	require_once 'system.php';
+	require_once 'register_error_msg.php';
+	require_once 'functions.php';
 
 if (isset($_POST["submit"])) {
 	
@@ -8,12 +11,7 @@ if (isset($_POST["submit"])) {
 	$pwd = $_POST["pwd"];
 	$pswrepeat = $_POST["pwdrepeat"];
 
-	require_once 'system.php';
-	require_once 'register_error_msg.php';
-	require_once 'functions.php';
-	 
-
-	if (emptyinput($username, $email, $pwd, $pwdrepeat) !== false ) {
+	 	if (emptyinput($username, $email, $pwd, $pwdrepeat) !== false ) {
 		header("location: ../register?error=emptyinput");
 		exit();
 	}
@@ -33,12 +31,12 @@ if (isset($_POST["submit"])) {
 		exit();
 	}
 	
-	if (alreadyexists($conn, $username, $email) !== false ) {
+	if (alreadyexists($this->conn, $username, $email) !== false ) {
 		header("location: ../register?error=alreadyexists");
 		exit();
 	}
 
-	register($conn, $username, $email, $pwd);
+	register($this->conn, $username, $email, $pwd);
 
 }
 else {
