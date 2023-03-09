@@ -1,12 +1,20 @@
-<?php #$auth->register(); ?>
+<?php $auth->register(); ?>
 
 <h1>Register</h1>
 
 <hr>
 <hr>
 <div class="center">
-     <form name="frmreg" action="include/register.inc.php" method="POST">
-         
+     <form name="frmreg" action="" method="POST">
+         <? if(count($auth->messages) > 0): ?>
+          <div class="message">
+               <ul>
+               <? foreach($auth->messages AS $message): ?>
+                    <li><?=$message?></li>
+               <? endforeach; ?>
+               </ul>
+          </div>
+          <? endif; ?>
           <label for="email">E-mail:</label>
           </br>
           <input type="text" name="email" require>
@@ -23,6 +31,6 @@
            </br>
           <input type="password" name="pwdrepeat" require>
           </br>
-          <button type="submit" name="submit">Sign up</button>
+          <button type="submit" name="regsubmit">Sign up</button>
      </form>
 </div>
