@@ -95,7 +95,7 @@ class auth{
         $this->username = $_POST["username"];
 	    $this->pwd = $_POST["pwd"];
 	    $this->pswrepeat = $_POST["pwdrepeat"];
-         $this->pwdhash = password_hash($this->pwd, PASSWORD_DEFAULT);
+        $this->pwdhash = password_hash($this->pwd, PASSWORD_DEFAULT);
 
         if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
             $this->valid = true;
@@ -109,14 +109,14 @@ class auth{
     }
  
     if (preg_match("/^[a-zA-Z0-9]*$/", $this->username)) {
-	$this->valid = true;
+	    $this->valid = true;
         }else{
 	       $this->message('Nepareiz lietotājvārda formāts');
         }
 
     
      if ($this->pwd == $this->pswrepeat) {
-	$this->valid = true;
+	    $this->valid = true;
         }else{
 	       $this->message('Paroles nesakrīt');
         }
@@ -131,12 +131,11 @@ class auth{
             $this->postValidregister();
 
             if(count($this->messages) == 0){
-                #$auth = $this->db->insert('INSERT IGNORE INTO users (username, email, password) VALUES ("'.$this->username.'","'.$this->email.'","'.$this->pwdhash.'")');
-                #$auth = $this->db->insert('INSERT IGNORE INTO users SET (username = "'.$this->username.'", email = "'.$this->email.'", password = "'.$this->pwdhash.'")');
+                $auth = $this->db->insert('INSERT IGNORE INTO users SET username = "'.$this->username.'", email = "'.$this->email.'", password = "'.$this->pwdhash.'"');  
 
-                $auth = $this->db->insert('INSERT IGNORE INTO users (username, email, password) SET ("'.$this->username.'","'.$this->email.'","'.$this->pwdhash.'")');
+
+            }
+        }
     }
-    }
-    }
- }
+}
 ?>
