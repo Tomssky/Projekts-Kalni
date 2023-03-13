@@ -67,8 +67,7 @@ Class db{
 		return $dataArray;
 	}
 	
-	function insert($table,$dataArray,$error = false,$ignore = false){
-                
+	function insert($table,$dataArray,$error = false,$ignore = false){      
 		$dataArray = $this->chekArray($table,$dataArray,$error);
 		
 		$query = 'INSERT '.($ignore ? 'IGNORE' : '' ).' INTO ' . $table . ' SET ';

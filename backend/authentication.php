@@ -7,8 +7,9 @@ class auth{
     var $pswd;
     var $messages = array();
 
-    function __construct(){
-        $this->db = new db();
+
+    public function __construct(){
+        $this->db = new db;
     }
 
     function message($message){
@@ -95,7 +96,7 @@ class auth{
         $this->username = $_POST["username"];
 	    $this->pwd = $_POST["pwd"];
 	    $this->pswrepeat = $_POST["pwdrepeat"];
-        $this->pwdhash = password_hash($this->pwd, PASSWORD_DEFAULT);
+        $this->pwdhash = md5($this->pwd);
 
         if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
             $this->valid = true;
@@ -120,22 +121,26 @@ class auth{
         }else{
 	       $this->message('Paroles nesakrīt');
         }
-
-        #alreadyexists no register_test.php
-       
-    }
-
+  
+     }
+   
     function register() {
- 
-        if(isset($_POST['regsubmit'])){
-            $this->postValidregister();
 
-            if(count($this->messages) == 0){
-                $auth = $this->db->insert('INSERT IGNORE INTO users SET username = "'.$this->username.'", email = "'.$this->email.'", password = "'.$this->pwdhash.'"');  
+    if(isset($_POST['regsubmit'])){
+        $this->postValidregister();
 
+    if(count($this->messages) == 0){
 
+     $dataArray = array(
+                    'email' => $this->email,
+                    'username' => $this->username,
+                    'password' => $this->pwdhash,
+                    'access' => '2'
+                );
+                $auth = $this->db->insert('users', $dataArray);
+                 header("Location: /");
+                }
             }
         }
     }
-}
 ?>
