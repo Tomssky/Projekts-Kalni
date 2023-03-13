@@ -12,5 +12,4 @@ $products = new products();
 </br>
 
 <h2>Produktu saraksts</h2>
-<!--iesaista data.php failu-->
 <? echo $products->getProducts(); ?>
