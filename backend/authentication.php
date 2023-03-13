@@ -121,7 +121,13 @@ class auth{
         }else{
 	       $this->message('Paroles nesakrīt');
         }
-  
+
+    $auth = $this->db->getArrayFirst("SELECT id FROM users WHERE email = '".$this->email."'", true);
+
+        if ($auth) {
+            $this->messages[] = 'E-pasts jau ir reģistrēts.';
+        }
+
      }
    
     function register() {
@@ -138,7 +144,7 @@ class auth{
                     'access' => '2'
                 );
                 $auth = $this->db->insert('users', $dataArray);
-                 header("Location: /");
+                 header("Location: /login");
                 }
             }
         }
