@@ -259,12 +259,20 @@ label {
 	width: 48%;
 	float: left;
 	padding: 10px;
-	border: 5px solid;
+
 }
 
 .right-div {
 	width: 48%;
 	float: left;
 	padding: 10px;
-	border: 5px solid;
+
+}
+.under-div {
+	text-align: center;
+	width: 98%;
+	overflow: hidden;
+	float: left;
+	padding: 10px;
+
 }
