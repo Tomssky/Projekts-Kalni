@@ -88,7 +88,7 @@ class auth{
 
         return false;
     }
-
+//cau marek, tu neko nezini,ja zini tad ne(register).
     function postValidregister(){
     if (isset($_POST["regsubmit"])) {
 
@@ -101,7 +101,7 @@ class auth{
         if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
             $this->valid = true;
                 }else{
-                    $this->message('Nepareiz e-pastsa formāts');
+                    $this->message('Nepareiz e-pasta formāts');
                 }
     }
 
