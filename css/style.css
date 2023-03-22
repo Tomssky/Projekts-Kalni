@@ -44,7 +44,6 @@ table {
 	color: white;
 	font-weight: bold;
 	border: 3px solid rgb(112, 38, 155);
-	position: center;
 	width: 80%;
 	height: auto;
 }
@@ -56,7 +55,7 @@ h1 {
 	animation-fill-mode: forwards;
 	font: italic small-caps bold 70px Georgia, serif;
 	padding-top: 10px;
-	text-align: left;
+	position: inherit;
 }
 
 h2 {

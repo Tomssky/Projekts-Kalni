@@ -1,14 +1,19 @@
 <div class="topnav">
+<?php
+$access = $auth->access();
+?>
     <a href="home">Home</a>
     <a href="/catalog">Catalog</a>
     <a href="/contact">Contact</a>
     <a href="/about">About</a>
-    <? if($auth->auth()): ?>
-        <a class="right" href="/logout">Logout</a>
-    <? else: ?>
+     <? if($access == 1): ?>
          <a class="right" href="/login">Login</a>
          <a class="right" href="/register">register</a>
-    <? endif; ?>
-</div>
+     <? elseif($access == 2): ?>
+         <a class="right" href="/logout">Logout</a>
+     <? elseif($access == 3): ?>
+         <a class="right" href="/logout">logout</a>
+         <a class="right" href="/admin">admin</a>
 
-<img src="/images/logoM2.png" width="240" height="240" align="left">
+     <? endif; ?>
+</div>

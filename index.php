@@ -13,7 +13,11 @@ include_once "include/system.php";
 <div class="bg">
     <div class="container">
         <? include_once "theme/public_nav.php"; ?>
-
+        <div>
+        <a href="/">
+         <img src="/images/logoM2.png" width="240" height="240" align="left">
+        </a>
+        </div>
         <div>
             <? echo $controller->page() ?>
         </div>
