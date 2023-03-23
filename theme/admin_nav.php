@@ -1,7 +1,6 @@
-<div class="topnav">
-    <a href="">Expences</a>
-    <a href="">Active orders</a>
-    <a href="">edit catalog</a>
-    <a href="/register">add users</a>
-    <a class="right" href="logout.php">Logout</a>
+<div class="">
+    <a href="admin">Expences</a>
+    <a href="/active_orders">Active orders</a>
+    <a href="/edit_catalog">edit catalog</a>
+    <a href="/users">users</a>
 </div>
