@@ -85,7 +85,8 @@ Class db{
 		return false;
 	}
 	
-	function update($table,$dataArray,$where,$error = false){
+/*	
+function update($table,$dataArray,$where,$error = false){
 		if(is_int($where)){
 			$id = $where;
 			$where = ' WHERE id="'.$where.'"';
@@ -121,6 +122,20 @@ Class db{
 		}
 		return false;
 	}
+*/
+function update($table, $dataArray, $where, $error = false) {
+    $dataArray = $this->chekArray($table, $dataArray, $error);
+
+    $query = "UPDATE $table SET ";
+    $set = array();
+    foreach ($dataArray as $key => $value) {
+        $set[] = "`$key`='" . mysqli_real_escape_string($this->conn, $value) . "'";
+    }
+    $query .= implode(', ', $set);
+    $query .= " WHERE $where";
+
+    return $this->result($query, $error);
+}
 	
 	function save($table,$dataArray,$where,$error = false){
 		$save = $this->update($table,$dataArray,$where,$error);

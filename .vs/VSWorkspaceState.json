@@ -3,10 +3,11 @@
     "",
     "\\backend",
     "\\css",
+    "\\include",
     "\\js",
     "\\pages",
     "\\theme"
   ],
-  "SelectedNode": "\\index.php",
+  "SelectedNode": "\\backend\\products.php",
   "PreviewInSolutionExplorer": false
 }

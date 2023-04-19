@@ -88,7 +88,7 @@ class auth{
 
         return false;
     }
-//cau marek, tu neko nezini,ja zini tad ne(register).
+
     function postValidregister(){
     if (isset($_POST["regsubmit"])) {
 

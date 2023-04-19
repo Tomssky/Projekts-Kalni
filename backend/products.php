@@ -10,7 +10,7 @@ class products {
     FROM products p 
     LEFT JOIN images AS i ON i.product_id = p.id';
 
-    //TODO: acces change after login
+   //test
     if($access){
         $query .= ' WHERE p.access <= '. $access;
     }else{
@@ -37,23 +37,21 @@ class products {
         echo '</div>';
     }
 
-   function editcatalog($access = false){
-
+function editCatalog($access = false) {
     global $db, $auth;
 
     $query = 'SELECT p.*, i.image
-    FROM products p 
-    LEFT JOIN images AS i ON i.product_id = p.id';
+        FROM products p 
+        LEFT JOIN images AS i ON i.product_id = p.id';
 
-    if($access){
-        $query .= ' WHERE p.access <= '. $access;
-    }else{
-        $query .= ' WHERE p.access <= '. $auth->access();
+    if ($access) {
+        $query .= ' WHERE p.access <= ' . $access;
+    } else {
+        $query .= ' WHERE p.access <= ' . $auth->access();
     }
 
-    $products = $db->getArray($query,true);
+    $products = $db->getArray($query, true);
 
-  
     echo '<form method="post">';
     echo '<table style="width:100%">
             <thead>
@@ -65,41 +63,28 @@ class products {
                     <th>price</th>
                     <th>stock</th>
                     <th>access</th>
-                    <th>save</th>
+                    <th>edit</th>
               </tr>
             </thead>
             <tbody>';
-    foreach($products AS $product){
+    foreach ($products as $product) {
         echo '<tr>
                 <td>' . $product['id'] . '</td>
-                <td><img src="/images/'.$product['image'].'"></td>
-                <td><input type="text" name="image" placeholder="' . $product['image'] . '"></td>
-                <td><input type="text" name="name" placeholder="' . $product['name'] . '"></td>
-                <td><input type="text" name="price" placeholder="' . $product['price'] . '"></td>
-                <td><input type="text" name="count" placeholder="' . $product['count'] . '"></td>
-                <td><input type="text" name="access" placeholder="' . $product['access'] . '"></td>
-                <td><input type="submit" name="update" value="Save"></td>
+                <td><img src="/images/' . $product['image'] . '"></td>
+                <td>' .  $product['image'] . ' </td>
+                <td>' .  $product['name']. '</td>
+                <td>' .  $product['price']. '</td>
+                <td>' .  $product['count']. '</td>
+                <td>' .  $product['access']. '</td>
+                <td>   
+                    <a href="edit_product?id=' . $product['id'] . '">edit</a>
+                </td>
               </tr>';
-}
-        echo '</tbody>
-            </table>';
-        if(isset($_POST['update']) && $_POST['update'] == "Save" && $_POST['id'] == $product['id']){
+    }
+    echo '</tbody>
+        </table>';
+    echo '</form>';
 
-            $dataArray = array(
-                'image' => $_POST['image'],
-                'name' => $_POST['name'],
-                'price' => $_POST['price'],
-                'count' => $_POST['count'],
-                'access' => $_POST['access']
-            );
-            $where = $product['id'];
-            $db->update('products', $dataArray, $where, true);
-            
-            header('Location: ' . $_SERVER['REQUEST_URI']);
-            exit();
         }
     }
-
-}
-
 ?>

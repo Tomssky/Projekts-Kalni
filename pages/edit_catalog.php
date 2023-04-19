@@ -17,4 +17,15 @@ $products = new products();
 </br>
 
 
-<? echo $products->editcatalog(); ?>
+<?
+
+echo $products->editcatalog(); 
+
+if (isset($_POST['update'])) {
+    if (!isset($_POST['id'])) {
+        echo '<p>Product ID is missing</p>';
+        return;
+    }
+exit;
+}
+?>
