@@ -2,27 +2,34 @@
 class controller
 {
 
-    var $page;
-    function __construct()
-    {
-        $this->page = url_segment(0);
-    }
+    var $contentmode = "pages";
+    var $include = "home";
 
-    function page()
+    function __construct()
+    { }
+
+    function contentloader()
     {
         global $auth, $db;
 
 
-        if (empty($this->page)) {
-            $this->page = 'home';
+        if (empty(url_segment(0))) {
+            $this->include = 'home';
+        } else {
+	        $this->include = url_segment(0);
         }
 
-        if($this->page == 'logout'){
+        if(url_segment(0) == 'logout'){
             return $auth->logout();
         }
 
-        $include = 'pages/' . $this->page . '.php';
+          if(url_segment(0) == 'admin'){
+           $this->contentmode = "admincontent";
+           $this->include = (empty(url_segment(1)) ? 'admin' : url_segment(1));
+        }
 
+        $include = $this->contentmode . '/' . $this->include . '.php';
+        echo $include;
         if (file_exists($include)) {
             include_once $include;
         }
@@ -30,5 +37,5 @@ class controller
         return '';
     }
 
-
+    
 }

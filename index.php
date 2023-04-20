@@ -19,7 +19,7 @@ include_once "include/system.php";
         </a>
         </div>
         <div>
-            <? echo $controller->page() ?>
+            <? echo $controller->contentloader() ?>
         </div>
 
     </div>

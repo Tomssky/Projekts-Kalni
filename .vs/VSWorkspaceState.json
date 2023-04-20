@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+    "\\admincontent",
     "\\backend",
     "\\css",
     "\\include",
@@ -8,6 +9,6 @@
     "\\pages",
     "\\theme"
   ],
-  "SelectedNode": "\\backend\\products.php",
+  "SelectedNode": "\\include\\controller.php",
   "PreviewInSolutionExplorer": false
 }

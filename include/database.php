@@ -84,8 +84,31 @@ Class db{
 		
 		return false;
 	}
-	
 /*	
+	function getTableIdcolumn($table){
+        $result = 'SELECT column_name
+        FROM information_schema.columns
+        WHERE table_schema=DATABASE() AND table_name="'.$table.'" AND extra="auto_increment"';
+        $id = $this->getArrayFirst($result,true);
+        if($id){
+            return $id['column_name'];
+        }else{
+            return false;
+        } 
+    }
+
+	function getCount($query,$error = false){
+        $result = $this->result($query,$error);
+        if ($result){
+            $data = mysqli_num_rows($result);
+            if ($data){
+                $table = $this->get_tables($query);
+                return $data;
+            }
+        }
+        return 0;
+    }
+	
 function update($table,$dataArray,$where,$error = false){
 		if(is_int($where)){
 			$id = $where;
