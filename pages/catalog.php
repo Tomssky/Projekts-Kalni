@@ -1,9 +1,7 @@
 <?php
 
 include_once "backend/products.php";
-
 $products = new products();
-
 ?>
 <h1>Catalog</h1>
 
@@ -13,3 +11,5 @@ $products = new products();
 
 <h2>Produktu saraksts</h2>
 <? echo $products->getProducts(); ?>
+
+

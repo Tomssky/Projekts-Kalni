@@ -29,7 +29,7 @@ class controller
         }
 
         $include = $this->contentmode . '/' . $this->include . '.php';
-        echo $include;
+        //echo $include;
         if (file_exists($include)) {
             include_once $include;
         }

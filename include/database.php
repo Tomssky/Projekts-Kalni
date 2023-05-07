@@ -67,6 +67,12 @@ Class db{
 		return $dataArray;
 	}
 	
+function getRow($query, $error = false) {
+    $result = $this->result($query, $error);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    return $row;
+}
+
 	function insert($table,$dataArray,$error = false,$ignore = false){      
 		$dataArray = $this->chekArray($table,$dataArray,$error);
 		
@@ -174,22 +180,10 @@ function update($table, $dataArray, $where, $error = false) {
 		return $save;
 	}
 
-	function delete($table,$where,$error = false,$disable_forign_key = false){
-		
-		$conect = $this->dbConect();
-
-		if($disable_forign_key){
-			mysqli_query($conect,'SET FOREIGN_KEY_CHECKS=0') or die("<b>" . $query . "</b><br>" . mysqli_error($conect));
-		}
-		
-		$result = mysqli_query($conect,'DELETE FROM ' . $table . ' ' . $where.';') or die("<b>" . $query . "</b><br>" . mysqli_error($conect));
-		
-		if($disable_forign_key){
-			mysqli_query($conect,'SET FOREIGN_KEY_CHECKS=1') or die("<b>" . $query . "</b><br>" . mysqli_error($conect));
-		}	
-
-        return $result;
-	}
+function delete($table, $where, $error = false) {
+    $query = "DELETE FROM $table WHERE $where";
+    return $this->result($query, $error);
+}
 
 	function result($query,$error = false){
 		if ($query){
@@ -229,4 +223,6 @@ function update($table, $dataArray, $where, $error = false) {
 		WHERE (`TABLE_NAME` = "'.$table.'") AND (`COLUMN_KEY` = "PRI")');
 		return $data;
 	}
+
+	
 }

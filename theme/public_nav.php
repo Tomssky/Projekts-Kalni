@@ -11,9 +11,10 @@ $access = $auth->access();
          <a class="right" href="/register">register</a>
      <? elseif($access == 2): ?>
          <a class="right" href="/logout">Logout</a>
+         <a class="right" href="/cart">cart</a>
      <? elseif($access == 3): ?>
          <a class="right" href="/logout">logout</a>
          <a class="right" href="/admin">admin</a>
-
+         <a class="right" href="/cart">cart</a>
      <? endif; ?>
 </div>

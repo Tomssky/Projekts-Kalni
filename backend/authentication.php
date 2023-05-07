@@ -5,12 +5,28 @@ class auth{
     var $db;
     var $email;
     var $pswd;
-    var $messages = array();
-
+    var $messages = array(); 
 
     public function __construct(){
         $this->db = new db;
     }
+
+     function getLoggedInUserId($username, $password) {
+
+    // Check if the username and password match a record in the database
+    $sql = "SELECT id FROM users WHERE username='$username' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) == 1) {
+        // If a match is found, retrieve the user ID
+        $row = mysqli_fetch_assoc($result);
+        $userId = $row['id'];
+        return $userId;
+    } else {
+        // If no match is found, return false
+        return false;
+    }
+     }
 
     function message($message){
         $this->messages[] = $message;
