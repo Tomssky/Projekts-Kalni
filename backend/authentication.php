@@ -10,23 +10,43 @@ class auth{
     public function __construct(){
         $this->db = new db;
     }
+    
+    function login(){
+        
+        if(isset($_POST['email'])){
+            $this->postValid();
 
-     function getLoggedInUserId($username, $password) {
+            if(count($this->messages) == 0){
+                $auth = $this->db->getArrayFirst('SELECT `id`, `username`, `email`, `access` FROM `users` WHERE `email` = "'.$this->email.'" AND `password` = md5("'.$this->pswd.'")',true);
 
-    // Check if the username and password match a record in the database
-    $sql = "SELECT id FROM users WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
+                if(isset($auth['id'])){
+                    $_SESSION['auth'] = $auth;
 
-    if (mysqli_num_rows($result) == 1) {
-        // If a match is found, retrieve the user ID
-        $row = mysqli_fetch_assoc($result);
-        $userId = $row['id'];
-        return $userId;
-    } else {
-        // If no match is found, return false
+                    header("Location: /");
+                }else{
+                    $this->message('Neizdevās autentificēties e-pasts vai parole ir nekorekta');
+                }
+            }
+        }
+
         return false;
     }
-     }
+
+    function access(){
+        if(isset($_SESSION['auth']['access'])){
+            return $_SESSION['auth']['access'];
+        }
+        
+        return 1;
+    }
+
+   function getLoggedInUserId() {
+    if(isset($_SESSION['auth']['id'])){
+        return $_SESSION['auth']['id'];
+        } else {
+        return null;
+      }
+    }
 
     function message($message){
         $this->messages[] = $message;
@@ -61,35 +81,6 @@ class auth{
         }
 
         return $this;
-    }
-
-    function login(){
-        
-        if(isset($_POST['email'])){
-            $this->postValid();
-
-            if(count($this->messages) == 0){
-                $auth = $this->db->getArrayFirst('SELECT `id`, `username`, `email`, `access` FROM `users` WHERE `email` = "'.$this->email.'" AND `password` = md5("'.$this->pswd.'")',true);
-
-                if(isset($auth['id'])){
-                    $_SESSION['auth'] = $auth;
-
-                    header("Location: /");
-                }else{
-                    $this->message('Neizdevās autentificēties e-pasts vai parole ir nekorekta');
-                }
-            }
-        }
-
-        return false;
-    }
-
-    function access(){
-        if(isset($_SESSION['auth']['access'])){
-            return $_SESSION['auth']['access'];
-        }
-        
-        return 1;
     }
 
     function logout(){
@@ -145,8 +136,8 @@ class auth{
         }
 
      }
-   
-    function register() {
+
+      function register() {
 
     if(isset($_POST['regsubmit'])){
         $this->postValidregister();
@@ -164,5 +155,5 @@ class auth{
                 }
             }
         }
-    }
+}
 ?>

@@ -53,6 +53,53 @@ td {
 	height: auto;
 }
 
+.containers {
+
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 70vh;
+}
+	.containers button {
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+
+	.containers input[type="text"] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		border: 2px solid #ccc;
+		border-radius: 4px;
+		background-color: #f8f8f8;
+		font-size: 16px;
+	}
+
+	.containers .left {
+		flex: 7;
+	}
+
+.container .right {
+	display: flex;
+	flex-direction: column;
+	flex: 3;
+	border-left: 1px solid rgb(112, 38, 155);
+	border-top: 3px solid rgb(112, 38, 155);
+}
+	.container .right button {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+
 /*teksta stils un animacijas*/
 h1 {
 	animation: fadeInAnimation ease 2s;
@@ -173,7 +220,6 @@ a.right {
 
 button {
 	background-color: rgb(112, 38, 155);
-	width: 20%;
 	color: #ffffff;
 	padding: 15px;
 	margin: 10px 0px;

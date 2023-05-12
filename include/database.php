@@ -26,6 +26,7 @@ Class db{
 		}
 	}
 		
+
 	function getArray($query,$error=false){ 
 		$data = array();
 
