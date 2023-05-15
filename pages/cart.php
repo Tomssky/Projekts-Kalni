@@ -10,7 +10,7 @@ $total_price = 0;
 
 if (isset($_POST['delete'])) {
     $product_id = $_POST['delete'];
-    $db->delete('cart', "product_id = $product_id", true);
+    $db->delete('cart', "product_id = $product_id AND user_id = $user_id AND order_id IS NULL ", true);
     header('Location: ' . $_SERVER['REQUEST_URI']);
     exit;
 }
@@ -39,7 +39,16 @@ echo '<table style="width:100%">
         <thead>
            
         </thead>
+        <tbody>';   
+        if (empty($products)) {
+    echo "<td><p>Your cart is empty.</p></td>";
+} else {
+    echo '<table style="width:100%">
+        <thead>
+           
+        </thead>
         <tbody>';
+}
 foreach ($products as $product) {
     $item_total = $product['price'] * $product['product_amount'];
     $total_price = $total_price + $item_total;
@@ -78,19 +87,19 @@ echo '</form>';
             $
             <br>
             <br> 
-			<form method="post">
-              <label for="name">Name:</label>
-              <br>
-              <input type="text" id="name" name="name" required>
-              <br>
+		      <form method="post">
+                  <label for="name">Name:</label>
+                  <br>
+                  <input type="text" id="name" name="name" required minlength="3">
+                  <br>
 
+                  <label for="phone">Phone:</label>
+                  <br>
+                  <input type="text" id="phone" name="phone" required minlength="10">
+                  <br>
 
-              <label for="phone">Phone:</label>
-              <br>
-              <input type="text" id="phone" name="phone" required>
-              <br>
-            <button type="submit" name="confirm">Confirm</button>
-           </form>
+                  <button type="submit" name="confirm">Confirm</button>
+              </form>
 		</div>
 	</div>
 

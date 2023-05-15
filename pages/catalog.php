@@ -10,6 +10,11 @@ $products = new products();
 </br>
 
 <h2>Produktu saraksts</h2>
-<? echo $products->getProducts(); ?>
 
-
+<?php
+	if (!isset($_SESSION['auth'])) {
+		 echo $products->getProductsguest(); 
+	} else {
+		 echo $products->getProducts(); 
+	}
+?>
