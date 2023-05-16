@@ -17,8 +17,10 @@ $products = new products();
 </br>
 
 
-<?
 
+ <?php 
+
+include_once "admin_nav.php";
 echo $products->editcatalog(); 
 
 if (isset($_POST['update'])) {

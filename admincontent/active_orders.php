@@ -1,5 +1,9 @@
-            <h1>active orders</h1>
+<h1>active orders</h1>
 
-            <hr>
-            <hr>
-            </br>
+ <hr>
+ <hr>
+ </br></br>
+
+ <?php 
+    include_once "admin_nav.php";
+ ?>

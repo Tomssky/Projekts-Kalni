@@ -7,7 +7,9 @@
 </br>
 </br>
 
-
+ <?php 
+    include_once "admin_nav.php";
+ ?>
 <?php 
 $id = $_GET['id'];
 $product = $db->getArrayFirst("SELECT p.*, i.image

@@ -1,5 +1,5 @@
 <div class="column">
-    <h3>Check out our catalog and the items up for sale. our prices are the best in the city!</h3>
+    <h3>Check out our catalog and the items up for sale. Best prices in the city!</h3>
     <a href="/catalog" class="homepage">Go to Catalog</a>
 </div>
 <div class="chop">
