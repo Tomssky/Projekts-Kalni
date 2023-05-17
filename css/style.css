@@ -63,6 +63,20 @@ td {
 	backdrop-filter: blur(10px);
 }
 
+.team-slideshow {
+	position: relative;
+}
+
+.team {
+	display: none;
+	opacity: 0.3;
+	transition: opacity 0.5s;
+}
+
+.fade {
+	opacity: 1;
+}
+
 .container {
 	/* vidus dalas atdalijums un noformejums */
 	overflow: auto;

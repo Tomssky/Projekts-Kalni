@@ -11,6 +11,17 @@
     include_once "admin_nav.php";
  ?>
 <?php 
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $where = "id = $id";
+    if ($db->delete('products', $where)) {
+        header("Location: edit_catalog");
+        exit;
+    } else {
+        echo "Failed to delete product.";
+    }
+}
+
 $id = $_GET['id'];
 $product = $db->getArrayFirst("SELECT p.*, i.image
     FROM products p 

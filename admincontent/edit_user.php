@@ -1,4 +1,3 @@
-
 <h1>Edit user</h1>
 
 
@@ -11,6 +10,17 @@
     include_once "admin_nav.php";
  ?>
 <?php 
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $where = "id = $id";
+    if ($db->delete('users', $where)) {
+        header("Location: users");
+        exit;
+    } else {
+        echo "Failed to delete user.";
+    }
+}
+
 $id = $_GET['id'];
 $user = $db->getArrayFirst("SELECT * FROM users 
     WHERE id = $id");
@@ -63,6 +73,5 @@ echo '<div class="center">
         echo "Failed to update user.";
     }
 }
-
 
 ?>

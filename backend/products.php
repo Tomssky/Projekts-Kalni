@@ -25,9 +25,9 @@ function getProductsguest($access = false){
                 <div class="image"><img src="/images/'.$product['image'].'"></div>
                 <div class="title">'.$product['name'].'</div>
                 <div class="details">
-                <div>Cena: ' . $product['price'] . '</div>
+                <div>Cena: ' . $product['price'] . '$</div>
                 <div>Pieejami: '.$product['count'].'</div>
-                     login to access cart! </div>
+                    <br> Please login to use this feature</div>
                 </div>';
         }
     exit;
@@ -106,7 +106,7 @@ function editCatalog($access = false) {
                 <div class="image"><img src="/images/'.$product['image'].'"></div>
                 <div class="title">'.$product['name'].'</div>
                 <div class="details">
-                <div>Cena: ' . $product['price'] . '</div>
+                <div>Cena: ' . $product['price'] . '$</div>
                 <div>Pieejami: '.$product['count'].'</div>
                 </div>';
 
