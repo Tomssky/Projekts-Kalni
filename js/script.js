@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //fading slideshow
     let slideIndex = 0;
     showSlides();
 
@@ -16,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         slides[slideIndex - 1].style.display = "block";
         fadeIn(slides[slideIndex - 1]);
-        setTimeout(fadeOut, 9000, slides[slideIndex - 1]); // Fade out 9 seconds
-        setTimeout(showSlides, 10000); // Change slide 10 seconds
+        setTimeout(fadeOut, 9000, slides[slideIndex - 1]); // Fade out after 9 seconds
+        setTimeout(showSlides, 10000); // Change slide every 10 seconds
     }
 
     function fadeIn(element) {
